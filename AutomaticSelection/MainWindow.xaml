@@ -1,0 +1,52 @@
+﻿<Window x:Class="AutomaticSelection.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutomaticSelection"
+        mc:Ignorable="d"
+        Title="自动抽号系统（ver. 2.0 by C# based .NET Framework 3.5 for Windows 7）" Height="529.49" Width="620.208" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <local:IntervalConvertor x:Key="IntervalConvertor"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="27*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Menu Height="20" VerticalAlignment="Top" Margin="0,5,0,0" Grid.ColumnSpan="2">
+            <MenuItem Header="系统(_S)">
+                <MenuItem x:Name="AlternativeList" Header="待选列表" Click="AlternativeList_Click"/>
+                <Separator/>
+                <MenuItem x:Name="History" Header="历史记录" Click="History_Click" />
+                <MenuItem x:Name="ClearHistory" Header="清除历史" Click="ClearHistory_Click"/>
+                <Separator/>
+                <MenuItem x:Name="Exit" Header="退出" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="设置(_O)">
+                <MenuItem x:Name="Frequency" Header="抽选频率" Click="Frequency_Click" />
+            </MenuItem>
+        </Menu>
+        <Button x:Name="btnStart" Content="开始" Margin="10,30,10,0" VerticalAlignment="Top" Height="134" FontSize="72" FontWeight="Bold" Click="BtnStart_Click" Grid.Column="1"/>
+        <Label x:Name="lblId"  Content="000" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Height="56" Width="77"/>
+        <Label x:Name="lblName" Content="请按开始键" HorizontalAlignment="Left" Margin="10,66,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="90px" FontWeight="Bold" Grid.ColumnSpan="2" Height="127" Width="594" Grid.RowSpan="2"/>
+        <CheckBox x:Name="chkNoHistory" Content="不从历史中抽取" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.Column="1" FontSize="18" IsChecked="True" FontWeight="Bold" Height="22" Width="146"/>
+        <GroupBox Header="技术信息" Margin="10,7,10,49" Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid>
+                <Label Content="扫描频率：" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top"/>
+                <Label Content="扫描次数：" HorizontalAlignment="Left" Margin="286,16,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="lblInterval" Content="50 毫秒/次" HorizontalAlignment="Left" Margin="80,16,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="lblCount" Content="0" HorizontalAlignment="Left" Margin="356,16,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+        <Label Content="本计算机程序由光圈电子科技 邓立唯 编写，本计算机程序受著作权法和国际条约的保护，如果未经授权而擅自复制或传播本程序（或其中的任何部" HorizontalAlignment="Left" Margin="10,91,0,0" Grid.Row="2" VerticalAlignment="Top" FontSize="9" Foreground="#FF0A7A04" Grid.ColumnSpan="2" Width="594" Height="23"/>
+        <Label Content="分），将受到严厉的民事和刑事制裁，并在法律许可的最大限度内受到起诉。" HorizontalAlignment="Left" Margin="10,105,0,0" Grid.Row="2" VerticalAlignment="Top" FontSize="9" Foreground="#FF0A7A04" Grid.ColumnSpan="2" Width="594" Height="22"/>
+        <ListBox x:Name="lstSelected" Margin="10,30,10,10" FontSize="16"/>
+
+    </Grid>
+</Window>

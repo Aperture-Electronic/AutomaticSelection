@@ -1,0 +1,40 @@
+﻿<Window x:Class="AutomaticSelection.SystemOption"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutomaticSelection"
+        mc:Ignorable="d"
+        Title="系统设置" Height="462.428" Width="534.734" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <Grid>
+        <TabControl x:Name="tabOption" Margin="10">
+            <TabItem Header="待选列表">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="359"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox x:Name="lstNames" Margin="10,10,9,22"/>
+                    <Button x:Name="btnAdd" Content="添加" Grid.Column="1" Margin="10,10,10,328" Click="BtnAdd_Click"/>
+                    <Button x:Name="btnRemove" Content="删除" Grid.Column="1" Margin="10,63,10,275" Click="BtnRemove_Click"/>
+                    <Button x:Name="btnModify" Content="修改" Grid.Column="1" Margin="10,116,10,222" Click="BtnModify_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="历史记录">
+                <Grid>
+                    <ListBox x:Name="lstHistory" Margin="10,10,9,77"/>
+                    <Button x:Name="btnClearHistory" Content="清除历史记录" HorizontalAlignment="Left" Margin="10,314,0,0" VerticalAlignment="Top" Width="159" Height="45" Click="BtnClearHistory_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="频率设置">
+                <Grid>
+                    <Label Content="抽选频率" Width="100" FontSize="18" Margin="35,153,368,184" />
+                    <TextBox x:Name="txtInterval" TextWrapping="Wrap" Text="50" Margin="140,157,278,184" FontSize="18" MaxLength="3" InputMethod.IsInputMethodEnabled="False"/>
+                    <Label Content="毫秒/次" Width="100" FontSize="18" Margin="230,153,173,184" />
+                    <Button x:Name="btnSaveInterval" Content="保存" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Margin="330,163,0,0" Height="39" Click="BtnSaveInterval_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
